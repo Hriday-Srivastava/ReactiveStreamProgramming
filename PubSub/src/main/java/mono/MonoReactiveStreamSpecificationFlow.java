@@ -36,6 +36,22 @@ public class MonoReactiveStreamSpecificationFlow {
                 System.out.println("Completed");
             }
         });
+        
+        //In java8 Style same action or implementation of Mono Pub-Sub reactive programming specifications.
+        System.out.println("***************Implementation Mono Using Java8 Lambda*************** ");
+        monoPublisher.doOnSubscribe(sub -> System.out.println("Subscription done"))
+        .subscribe(
+            data -> System.out.println("Data: " + data),
+            err -> System.out.println("Error: " + err.getMessage()),
+            () -> System.out.println("Completed")
+        );
+        
+        System.out.println("********************OR************************");
+        monoPublisher.subscribe(
+                data -> System.out.println("Data: " + data),              // onNext
+                error -> System.out.println("Error: " + error.getMessage()), // onError
+                () -> System.out.println("Completed")                    // onComplete
+        );
 
 	}
 
