@@ -54,4 +54,9 @@ public class BookServiceImpl implements BookService{
     public Flux<Book> addAllBooks(List<Book> books) {
         return bookRepository.saveAll(books);
     }
+
+    @Override
+    public Flux<Book> getAllBooksByPublisherAndAuthor(String publisherName, String authorName) {
+        return bookRepository.getAllBooksByPublisherAndAuthor(publisherName, authorName);
+    }
 }

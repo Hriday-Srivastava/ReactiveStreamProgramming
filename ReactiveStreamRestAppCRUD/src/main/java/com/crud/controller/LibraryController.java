@@ -47,4 +47,9 @@ public class LibraryController {
     public Flux<Book> saveAllBooks(@RequestBody List<Book> books){
         return bookService.addAllBooks(books);
     }
+
+    @GetMapping("/search")
+    public Flux<Book> getAllBooks(@RequestParam String publisher, @RequestParam String author){
+        return bookService.getAllBooksByPublisherAndAuthor(publisher, author);
+    }
 }
